@@ -6,7 +6,6 @@ TOKEN = '7849002758:AAEMONgJrDTxTYE5tbLAuuzq7YNuTZqZ5bA'
 STICKER_ID = 'CAACAgUAAxkBAAIgL2cHg1wOoOZ7uBA5Q8uh8wF2DN1xAAIEAAPBJDExieUdbguzyBAe'
 PHOTO_URL = 'https://files.catbox.moe/j1fnq9.jpg'
 
-# Start command function
 async def start(update: Update, context):
     user_full_name = update.message.from_user.full_name
     bot_name = context.bot.username
@@ -42,15 +41,14 @@ async def start(update: Update, context):
 
     await context.bot.send_photo(chat_id=update.effective_chat.id, photo=PHOTO_URL, caption=caption, reply_markup=reply_markup)
 
-# Main function to run the bot
 async def main():
     application = ApplicationBuilder().token(TOKEN).build()
 
     start_handler = CommandHandler('start', start)
     application.add_handler(start_handler)
 
-    await application.initialize()  # Ensure initialization happens before starting
-    await application.start()
+    # Use polling instead of webhook
+    await application.start_polling()  # Start polling
     await application.idle()
 
 if __name__ == '__main__':
