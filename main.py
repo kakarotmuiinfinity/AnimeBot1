@@ -49,10 +49,11 @@ async def main():
     start_handler = CommandHandler('start', start)
     application.add_handler(start_handler)
 
+    await application.initialize()  # Ensure initialization happens before starting
     await application.start()
     await application.idle()
 
 if __name__ == '__main__':
     import asyncio
     asyncio.run(main())
-  
+    
