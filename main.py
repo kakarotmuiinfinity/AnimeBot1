@@ -3,7 +3,7 @@ from telegram import Update, Bot, InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.ext import ApplicationBuilder, CommandHandler
 import os
 
-TOKEN = os.getenv("7849002758:AAEMONgJrDTxTYE5tbLAuuzq7YNuTZqZ5bA")  # Store your bot token securely in environment variables
+TOKEN = os.getenv("7849002758:AAHl0fFX7cySvXLp7S-f7Z7oRbiZ64D53tk")  # Store your bot token securely in environment variables
 STICKER_ID = 'CAACAgUAAxkBAAIgL2cHg1wOoOZ7uBA5Q8uh8wF2DN1xAAIEAAPBJDExieUdbguzyBAe'
 PHOTO_URL = 'https://files.catbox.moe/j1fnq9.jpg'
 
