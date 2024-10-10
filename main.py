@@ -1,5 +1,5 @@
 import time
-from telegram import Update, Bot, InlineKeyboardButton, InlineKeyboardMarkup
+from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.ext import ApplicationBuilder, CommandHandler
 
 TOKEN = '7849002758:AAEMONgJrDTxTYE5tbLAuuzq7YNuTZqZ5bA'
@@ -47,11 +47,9 @@ async def main():
     start_handler = CommandHandler('start', start)
     application.add_handler(start_handler)
 
-    # Use polling instead of webhook
-    await application.start_polling()  # Start polling
-    await application.idle()
+    # Use run_polling to start the bot
+    application.run_polling()
 
 if __name__ == '__main__':
-    import asyncio
-    asyncio.run(main())
+    main()
     
