@@ -1,1 +1,2 @@
 python-telegram-bot==20.3  # Ensure you use the latest compatible version
+Flask==2.3.2
