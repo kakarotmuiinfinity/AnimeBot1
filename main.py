@@ -2,7 +2,7 @@ import time
 from telegram import Update, Bot, InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.ext import ApplicationBuilder, CommandHandler
 
-TOKEN = '7849002758:AAHQ_AXCbvlpgfQqr5nZeRaCbV9FBNmYW0k'
+TOKEN = '7849002758:AAEMONgJrDTxTYE5tbLAuuzq7YNuTZqZ5bA'
 STICKER_ID = 'CAACAgUAAxkBAAIgL2cHg1wOoOZ7uBA5Q8uh8wF2DN1xAAIEAAPBJDExieUdbguzyBAe'
 PHOTO_URL = 'https://files.catbox.moe/j1fnq9.jpg'
 
