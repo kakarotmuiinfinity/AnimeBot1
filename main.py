@@ -1,11 +1,13 @@
 import time
-from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
+from telegram import Update, Bot, InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.ext import ApplicationBuilder, CommandHandler
+import os
 
-TOKEN = '7849002758:AAEMONgJrDTxTYE5tbLAuuzq7YNuTZqZ5bA'
+TOKEN = os.getenv("7849002758:AAEMONgJrDTxTYE5tbLAuuzq7YNuTZqZ5bA")  # Store your bot token securely in environment variables
 STICKER_ID = 'CAACAgUAAxkBAAIgL2cHg1wOoOZ7uBA5Q8uh8wF2DN1xAAIEAAPBJDExieUdbguzyBAe'
 PHOTO_URL = 'https://files.catbox.moe/j1fnq9.jpg'
 
+# Start command function
 async def start(update: Update, context):
     user_full_name = update.message.from_user.full_name
     bot_name = context.bot.username
@@ -41,15 +43,18 @@ async def start(update: Update, context):
 
     await context.bot.send_photo(chat_id=update.effective_chat.id, photo=PHOTO_URL, caption=caption, reply_markup=reply_markup)
 
+# Main function to run the bot
 async def main():
     application = ApplicationBuilder().token(TOKEN).build()
 
-    start_handler = CommandHandler('start', start)
-    application.add_handler(start_handler)
-
-    # Use run_polling to start the bot
-    application.run_polling()
+    # Webhook configuration
+    await application.run_webhook(
+        listen="0.0.0.0",
+        port=8080,
+        webhook_url="https://animebot1.onrender.com"
+    )
 
 if __name__ == '__main__':
-    main()
+    import asyncio
+    asyncio.run(main())
     
